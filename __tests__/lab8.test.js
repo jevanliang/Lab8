@@ -88,7 +88,7 @@ describe('Basic user flow for SPA ', () => {
     // implement test6: Clicking on the first journal entry should update the class attribute of <body> to ‘single-entry’
 
     var classy, matching;
-    classy = await page.evaluate(() => { return document.querySelector('body').className});
+    classy = await page.evaluate(() => document.querySelector('body').className);
 
     if(classy == "single-entry") { matching = true; }
     expect(matching).toBe(true);
@@ -242,7 +242,7 @@ describe('Basic user flow for SPA ', () => {
     it('Test19: Check url after clicking on fourth entry', async () => {
       await page.goBack();
       await page.click('journal-entry:nth-child(4)');
-      
+
       let urlContain;
       if (page.url().includes('/#entry4')) {urlContain = true; }
       expect(urlContain).toBe(true);
